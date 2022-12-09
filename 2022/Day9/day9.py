@@ -3,7 +3,6 @@ body=file1.read()
 lines=body.splitlines()
 col_path={'L':0,'U':-1,'R':0,'D':1}
 row_path={'L':-1,'U':0,'R':1,'D':0}
-i=19
 H=(0,0)
 T=[(0,0) for i in range(9)]
 T1=(0,0)
@@ -52,7 +51,7 @@ for line in lines:
 
 
 #first answer
-
+H=(0,0)
 for line in lines:
     s1,s2=line.split(' ')
     # print(s1,s2)

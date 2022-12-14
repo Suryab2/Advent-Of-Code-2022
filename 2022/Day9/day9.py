@@ -63,7 +63,41 @@ for line in lines:
         traversed2.add(T[8])
 
 
-
+#first answer
+H=(0,0)
+for line in lines:
+    s1,s2=line.split(' ')
+    # print(s1,s2)
+    s2=int(s2)
+    for z in range(s2):
+        traversed1.add(T1)
+        H=(H[0]+col_path[s1],H[1]+row_path[s1])
+        col=(H[0]-T1[0])
+        row=(H[1]-T1[1])
+        if abs(row)<=1 and abs(col)<=1:
+            pass
+        elif abs(row)>=2 and abs(col)>=2:
+            if T1[0]<H[0]:
+                if T1[1]<H[1]:
+                    T1=(H[0]-1,H[1]-1)
+                else:
+                    T1=(H[0]-1,H[1]+1)
+            else:
+                if T1[1]<H[1]:
+                    T1=(H[0]+1,H[1]-1)
+                else:
+                    T1=(H[0]+1,H[1]+1)
+        elif abs(col)>=2:
+            if T1[0]<H[0]:
+                T1=(H[0]-1,H[1])
+            else:
+                T1=(H[0]+1,H[1])
+        elif abs(row)>=2:
+           if T1[1]<H[1]:
+                T1=(H[0],H[1]-1)
+           else:
+                T1=(H[0],H[1]+1)
+        traversed1.add(T1)
 print(len(traversed1))
 print(len(traversed2))
 

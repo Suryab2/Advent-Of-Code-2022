@@ -1,0 +1,139 @@
+file1 = open('input11.txt', 'r')
+body=file1.read()
+lines=body.splitlines()
+m0=[52, 60, 85, 69, 75, 75]
+m1=[96, 82, 61, 99, 82, 84, 85]
+m2=[95, 79]
+m3=[88, 50, 82, 65, 77]
+m4=[66, 90, 59, 90, 87, 63, 53, 88]
+m5=[92, 75, 62]
+m6=[94, 86, 76, 67]
+m7=[57]
+m00=0
+m01=0
+m02=0
+m03=0
+m04=0
+m05=0
+m06=0
+m07=0
+st=[]
+i=0
+lcm=1
+for z in range(0,10000):
+    # print(z)
+    while(i<len(m0)):
+        temp=m0[i]*17
+        worry=temp%13
+        if(worry%13==0):
+            m6.append(worry)
+            m0.pop(i)
+            i-=1
+        else:
+            m7.append(worry)
+            m0.pop(i)
+            i-=1
+        m00+=1
+        i+=1
+    i=0
+    while(i<len(m1)):
+        temp=m1[i]+8
+        worry=temp%91
+        if(worry%7==0):
+            m0.append(worry)
+            m1.pop(i)
+            i-=1
+        else:
+            m7.append(worry)
+            m1.pop(i)
+            i-=1
+        m01+=1
+        i+=1
+    i=0
+    while(i<len(m2)):
+        temp=m2[i]+6
+        worry=temp%1729
+        if(worry%19==0):
+            m5.append(worry)
+            m2.pop(i)
+            i-=1
+        else:
+            m3.append(worry)
+            m2.pop(i)
+            i-=1
+        m02+=1
+        i+=1
+    i=0
+    while(i<len(m3)):
+        temp=m3[i]*19
+        worry=temp%3458
+        if(worry%2==0):
+            m4.append(worry)
+            m3.pop(i) 
+            i-=1
+        else:
+            m1.append(worry)
+            m3.pop(i)
+            i-=1
+        m03+=1
+        i+=1
+    i=0
+    while(i<len(m4)):
+        temp=m4[i]+7
+        worry=temp%17290
+        if(worry%5==0):
+            m1.append(worry)
+            m4.pop(i)
+            i-=1
+        else:
+            m0.append(worry)
+            m4.pop(i)
+            i-=1
+        m04+=1
+        i+=1
+    i=0
+    while(i<len(m5)):
+        temp=m5[i]*m5[i]
+        worry=temp%51870
+        if(worry%3==0):
+            m3.append(worry)
+            m5.pop(i)
+            i-=1
+            
+        else:
+            m4.append(worry)
+            m5.pop(i)
+            i-=1
+        m05+=1
+        i+=1
+    i=0
+    while(i<len(m6)):
+        temp=m6[i]+1
+        worry=temp%570570
+        if(worry%11==0):
+            m5.append(worry)
+            m6.pop(i)
+            i-=1
+        else:
+            m2.append(worry)
+            m6.pop(i)
+            i-=1
+        m06+=1
+        i+=1
+    i=0
+    while(i<len(m7)):
+        temp=m7[i]+2
+        worry=temp%9699690
+        if(worry%17==0):
+            m6.append(worry)
+            m7.pop(i)
+            i-=1
+        else:
+            m2.append(worry)
+            m7.pop(i)
+            i-=1
+        m07+=1
+        i+=1
+    i=0
+print((m00,m01,m02,m03,m04,m05,m06,m07))
+
